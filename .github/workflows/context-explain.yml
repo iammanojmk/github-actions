@@ -1,4 +1,4 @@
-name: Context Insights
+name: context-insights
 on: workflow_dispatch
 jobs:
     context:

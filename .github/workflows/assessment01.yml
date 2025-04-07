@@ -1,0 +1,14 @@
+name: practice-workflow
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+              uses: actions/checkout@v3
+            - name: Run lint
+              run: |
+                cd /home/runner/work/github-actions/github-actions/practice-project  
+                npm lint 
