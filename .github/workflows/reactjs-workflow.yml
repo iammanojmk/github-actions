@@ -1,0 +1,14 @@
+name: reactjs-workflow
+
+on: push
+
+jobs:
+    deployment:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+              uses: actions/checkout@v3
+            - name: Install node JS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18  
