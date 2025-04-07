@@ -30,7 +30,9 @@ jobs:
                 npm i
                 fi
             - name: Run tests
-              run: npm test  
+              run: |
+                cd /home/runner/work/github-actions/github-actions/reactjs-app
+                npm test  
 
     deploy:
         runs-on: ubuntu-latest
@@ -45,6 +47,7 @@ jobs:
             run: cd ./reactjs-app    
           - name: Install dependenices
             run: |
+                cd /home/runner/work/github-actions/github-actions/reactjs-app
                 if [ -e yarn.lock ]; then
                 yarn install --frozen-lockfile
                 elif [ -e package-lock.json ]; then
@@ -53,7 +56,9 @@ jobs:
                 npm i
                 fi
           - name: Build project
-            run: npm run build
+            run: |
+                cd /home/runner/work/github-actions/github-actions/reactjs-app
+                npm run build
           - name: Deploy
             run: echo "Deploying..."
 
