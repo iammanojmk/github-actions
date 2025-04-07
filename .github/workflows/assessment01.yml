@@ -11,4 +11,4 @@ jobs:
             - name: Run lint
               run: |
                 cd /home/runner/work/github-actions/github-actions/practice-project  
-                npm lint 
+                lint 
