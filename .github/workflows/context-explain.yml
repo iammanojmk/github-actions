@@ -1,0 +1,8 @@
+name: Context Insights
+on: workflow_dispatch
+jobs:
+    context:
+        runs-on: ubuntu_latest
+        steps:
+           - name: Get context
+             run: echo {{ toJSON(github) }}

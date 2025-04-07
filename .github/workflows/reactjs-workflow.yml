@@ -1,6 +1,6 @@
 name: reactjs-workflow
 
-on: push
+on: [push,workflow_dispatch]
 
 jobs:
     build:
@@ -12,13 +12,6 @@ jobs:
               uses: actions/setup-node@v3
               with:
                 node-version: 18 
-            # - name: Switch to working directory
-            #   run: cd ./reactjs-app/
-            # - name: pwd and ls
-            #   run: |
-            #     pwd
-            #     cd /home/runner/work/github-actions/github-actions/reactjs-app
-            #     ls
             - name: Install dependencies  
               run: |
                 cd /home/runner/work/github-actions/github-actions/reactjs-app
