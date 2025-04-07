@@ -8,7 +8,25 @@ jobs:
         steps:
             - name: Get code
               uses: actions/checkout@v3
+            - name: Install dependencies  
+              run: |
+                cd /home/runner/work/github-actions/github-actions/reactjs-app
+                if [ -e yarn.lock ]; then
+                yarn install --frozen-lockfile
+                elif [ -e package-lock.json ]; then
+                npm ci
+                else
+                npm i
+                fi  
             - name: Run lint
               run: |
                 cd /home/runner/work/github-actions/github-actions/practice-project  
-                lint 
+                npm run lint 
+            - name: Run test
+              run: |
+                  cd /home/runner/work/github-actions/github-actions/practice-project  
+                  npm run test   
+            - name: Run build
+              run: |
+                      cd /home/runner/work/github-actions/github-actions/practice-project  
+                      npm run build          
