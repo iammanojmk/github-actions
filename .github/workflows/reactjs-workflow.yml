@@ -15,7 +15,14 @@ jobs:
             - name: Switch to working directory
               run: cd ./reactjs-app
             - name: Install dependencies  
-              run: npm ci
+              run: |
+                if [ -e yarn.lock ]; then
+                yarn install --frozen-lockfile
+                elif [ -e package-lock.json ]; then
+                npm ci
+                else
+                npm i
+                fi
             - name: Run tests
               run: npm test  
 
@@ -31,7 +38,14 @@ jobs:
           - name: Switch to working directory
             run: cd ./reactjs-app    
           - name: Install dependenices
-            run: npm ci
+            run: |
+                if [ -e yarn.lock ]; then
+                yarn install --frozen-lockfile
+                elif [ -e package-lock.json ]; then
+                npm ci
+                else
+                npm i
+                fi
           - name: Build project
             run: npm run build
           - name: Deploy
