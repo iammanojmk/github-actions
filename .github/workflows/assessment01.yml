@@ -18,7 +18,7 @@ jobs:
                 npm run lint 
             - name: Run test
               run: |
-                  cd /home/runner/work/github-actions/github-actions/practice-project  
+                  cd /home/runner/work/github-actions/github-actions/practice-project/src  
                   npm run test   
             - name: Run build
               run: |
