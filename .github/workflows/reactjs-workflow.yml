@@ -22,6 +22,11 @@ jobs:
                 else
                 npm i
                 fi
+            - name: upload artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: my-artifact
+                path: path/to/artifact/world.txt    
             - name: Run tests
               run: |
                 cd /home/runner/work/github-actions/github-actions/reactjs-app
@@ -31,6 +36,12 @@ jobs:
         needs: build
         runs-on: ubuntu-latest
         steps:
+          - name: Get artifact
+            uses: actions/
+          - name: Download code coverage report
+            uses: actions/download-artifact@v4
+            with:
+              name: my-artifact
           - name: Get code
             uses: actions/checkout@v3
           - name: Install node JS
